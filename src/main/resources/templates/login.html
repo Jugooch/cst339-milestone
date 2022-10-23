@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" layout:decorate="layouts/loginRegistrationTemplate">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Name</title>
+</head>
+<body>
+
+<!--Displays the body content of the login form-->
+<div layout:fragment="content">
+<!--Pull in image from internet-->
+	<img th:src="@{/images/logo.png}" alt="FriendZone"/><br/><br/>
+	<h1 style="color: Black;">Log In</h1>
+	<!--Form to take the user to the home page when submitted and info is validated-->
+	<form class="row g-3" action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
+	
+		<div class="col-md-10">
+			<label for="username" class="col-sm-2 col-form-label">User Name:</label>
+			<input type="text" th:field="*{username}" id="username" required>
+		</div>
+		<div class="col-md-10">
+			<label for="password" class="col-sm-2 col-form-label">Password:</label>
+			<input type="text" th:field="*{username}" id="password" required>
+		</div>
+  		   <div class="col-sm-12">
+  			<button type="submit" class="btn btn-primary">Log In</button>
+  		</div>
+	</form>  
+	<!--Form that takes the user to the registration form-->
+	<form class="row g-3" action="#" th:action="@{newUser}" th:object="${registrationModel}" method="post" style="padding-top: 2%;">
+		<div class="col-sm-12">
+  				<button type="submit" class="btn btn-secondary col-sm-2">Create Account</button>
+  		</div>
+  	</form>
+</div>
+</body>
+</html>
